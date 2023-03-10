@@ -87,7 +87,7 @@ export const Login = ({ theme, handleTheme }) => {
       </div>
       <div
         onClick={handleTheme}
-        className=" flex   cursor-pointer  shadow-lg w-20 h-20 items-center justify-center rounded-full p-2 transition-all hover:bg-gray-700  bottom-12"
+        className=" flex   cursor-pointer  shadow-lg w-20 h-20 items-center justify-center rounded-full p-2 transition-all hover:bg-gray-300 hover:dark:bg-gray-700  bottom-12"
       >
         {theme === "dark" ? (
           <CiDark size={25} color="white" />
