@@ -33,7 +33,7 @@ export const AppRouter = () => {
         theme={theme}
         toastStyle={{backgroundColor:'#2563eb'}}
       />
-      ;
+    
       <Routes>
         {status === "not-authenticated" ? (
           <Route

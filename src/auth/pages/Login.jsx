@@ -43,8 +43,8 @@ export const Login = ({ theme, handleTheme }) => {
   };
 
   return (
-    <div className=" mx-auto  h-screen items-center justify-center flex flex-col bg-white dark:bg-black p-4 ">
-      <div className=" shadow-md border border-gray-200 rounded-lg max-w-md  p-8  lg:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto ">
+    <div className=" h-screen items-center justify-center flex flex-col bg-white dark:bg-black ">
+      <div className=" shadow-md border border-gray-200 rounded-lg max-w-md  p-8  lg:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto relative bottom-12 ">
         <form
           className="space-y-6 max-w-md mx-auto  py-12 px-4 md:px-14"
           onSubmit={onSubmit}
@@ -87,7 +87,7 @@ export const Login = ({ theme, handleTheme }) => {
       </div>
       <div
         onClick={handleTheme}
-        className=" flex  absolute cursor-pointer  shadow-lg w-20 h-20 items-center justify-center rounded-full p-2 transition-all hover:bg-gray-700  bottom-12"
+        className=" flex   cursor-pointer  shadow-lg w-20 h-20 items-center justify-center rounded-full p-2 transition-all hover:bg-gray-700  bottom-12"
       >
         {theme === "dark" ? (
           <CiDark size={25} color="white" />
