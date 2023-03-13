@@ -12,7 +12,6 @@ export const useAuthStore = () => {
     const { token, user } = payload;
     if (token && user) {
       dispatch(onLogin({ user, token }));
-      toast.success('Session started')
     }
   };
 
