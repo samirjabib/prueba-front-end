@@ -40,7 +40,7 @@ export const businessApi = createApi({
     }),
     sendEmail: builder.mutation({
       query: ({email, inventoryId}) => ({
-        url:`/company/get-inventory/${inventoryId}`,
+        url:`/company/get-inventory}`,
         method:"post",
         body: { email, inventoryId}
       })
