@@ -15,12 +15,12 @@ export const CompanyDetail = ({ name, address, phone, inventoryId }) => {
 
   const [ send, {isLoading, error}] = useSendEmailMutation()
 
-
   const sendEmail = async(e) => {
     e.preventDefault()
 
     await send({
-      email
+      email,
+      inventoryId
     })
     onResetForm()
     toast.success('email send')
