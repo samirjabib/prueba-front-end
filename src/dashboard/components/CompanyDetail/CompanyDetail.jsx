@@ -13,7 +13,8 @@ export const CompanyDetail = ({ name, address, phone, inventoryId }) => {
 
   const { email } = formState;
 
-  const [ send, {isLoading, error}] = useSendEmailMutation()
+  const [ send, {isLoading, error, data}] = useSendEmailMutation()
+  console.log(data)
 
   const sendEmail = async(e) => {
     e.preventDefault()
@@ -22,6 +23,7 @@ export const CompanyDetail = ({ name, address, phone, inventoryId }) => {
       email,
       inventoryId
     })
+
     onResetForm()
     toast.success('email send')
   }
