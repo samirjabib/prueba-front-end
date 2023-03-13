@@ -4,7 +4,7 @@ export const businessApi = createApi({
   reducerPath: "business",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://prueba-back-hj2c.onrender.com/api/v1",
+    baseUrl: "http://localhost:4001/api/v1/",
   }),
   refetchOnMountOrArgChange: true,
   refetchOnFocus: true,
