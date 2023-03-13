@@ -42,7 +42,7 @@ export const businessApi = createApi({
       query: ({email, inventoryId}) => ({
         url:`/company/get-inventory/${inventoryId}`,
         method:"post",
-        body: email
+        body: { email, inventoryId}
       })
     })
   }),
