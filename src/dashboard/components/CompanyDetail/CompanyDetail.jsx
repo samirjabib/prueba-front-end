@@ -1,14 +1,30 @@
-import { InputCustom } from "../../../components";
+import { InputCustom, Loading } from "../../../components";
 import { useForm } from "../../../hooks";
 import { AiFillPhone } from "react-icons/ai";
 import { ImLocation } from "react-icons/im";
+import { useSendEmailMutation } from "../../../store/api/businessApi";
+import { toast } from "react-toastify";
 
 export const CompanyDetail = ({ name, address, phone, inventoryId }) => {
   const { formState, onInputChange, onResetForm } = useForm({
     email: "",
   });
 
+
   const { email } = formState;
+
+  const [ send, {isLoading, error}] = useSendEmailMutation()
+
+
+  const sendEmail = async(e) => {
+    e.preventDefault()
+
+    await send({
+      email
+    })
+    onResetForm()
+    toast.success('email send')
+  }
 
   return (
     <div
@@ -42,8 +58,12 @@ export const CompanyDetail = ({ name, address, phone, inventoryId }) => {
           onChange={onInputChange}
           label="Receive the inventory to your e-mail"
         />
-        <button className="inline-flex items-center  px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Downland Inventary
+        <button onClick={sendEmail} className="inline-flex items-center  px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        {isLoading ? (
+              <Loading color="#36d7b7" size={18} />
+            ) : (
+              "Upload"
+            )}
           <svg
             aria-hidden="true"
             className="w-4 h-4 ml-2 -mr-1"

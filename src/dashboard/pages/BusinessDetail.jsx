@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useGetCompaniesByNitQuery } from "../../store/api/businessApi";
+import { useGetCompaniesByNitQuery, useSendEmailMutation } from "../../store/api/businessApi";
 import { ProductList } from "../components";
 import { CompanyDetail } from "../components/CompanyDetail";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { Loading, Modal } from "../../components";
 import { AddProduct } from "../components/AddProduct";
-import { useHandleModal, useProviderTheme } from "../../hooks";
+import { useForm, useHandleModal, useProviderTheme } from "../../hooks";
 
 export const BusinessDetail = ({ user }) => {
   const { id } = useParams();
@@ -13,6 +13,8 @@ export const BusinessDetail = ({ user }) => {
   const { handleModal, modalOpen } = useHandleModal();
 
   const { data, isLoading } = useGetCompaniesByNitQuery(id);
+
+
 
   if (isLoading) {
     return (
@@ -29,6 +31,8 @@ export const BusinessDetail = ({ user }) => {
   const { name, address, inventary, phone } = data;
   const { products, id: inventoryId } = inventary;
   const { role } = user.user;
+
+
 
   return (
     <div className="mt-20">
